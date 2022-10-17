@@ -5,12 +5,14 @@ public class Loan {
     private double rateOfInterest;
     private LoanType loanType;
 
-    public Loan(){
-        borrowerName = "";
-        termInYears = 0;
-        amount = 0;
-        rateOfInterest = 0;
-        loanType = null;
+
+    public Loan(String borrowerName, int termInYears, double amount, LoanType loanType)
+    {
+        this.borrowerName = borrowerName;
+        this.termInYears = termInYears;
+        this.amount = amount;
+        this.rateOfInterest = 0;
+        this.loanType = loanType;
     }
 
     public Loan(String borrowerName, int termInYears, double amount, double rateOfInterest, LoanType loanType)
@@ -31,6 +33,8 @@ public class Loan {
                 "\nAmount: " + amount + "\nRate of Interest: " + rateOfInterest + "\nLoan Type: "
                 + loanType + "\nMonthly Payment Installments: " + calculateInstallments(termInYears, amount, rateOfInterest));
     }
+
+    public void printAdminFee() {System.out.println("");}
 
     public String getBorrowerName() {
         return borrowerName;
