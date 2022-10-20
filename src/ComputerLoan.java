@@ -1,41 +1,37 @@
 public class ComputerLoan extends Loan{
-    private static double maximumAmount;
+    private static double minimumAmount = 0;
+    private static double maximumAmount = 1000;
     private static double fixedRate;
-    private static int allowedTerm;
+    private static int minimumTerm = 1;
+    private static int maximumTerm = 2;
     private double adminFee;
-    public ComputerLoan(String borrowerName, int termInYears, double amount, double rateOfInterest, LoanType loanType,
-                       double maximumAmount, double fixedRate, int allowedTerm, double adminFee) {
+    public ComputerLoan(String borrowerName, int termInYears, double amount, double rateOfInterest, LoanType loanType) {
         super(borrowerName, termInYears, amount, rateOfInterest, loanType);
-        this.maximumAmount = maximumAmount;
-        this.fixedRate = 0;
-        this.allowedTerm = allowedTerm;
-        this.adminFee = 0;
+        this.fixedRate = super.calculateInterestRate();
+        this.adminFee = calculateAdminFee();
     }
 
-    public static double getMaximumAmount() {
-        return maximumAmount;
+    public double calculateAdminFee(){
+        return 0;
+    }
+
+    public static double getMinimumAmount() {
+        return minimumAmount;
     }
 
     public static double getFixedRate() {
         return fixedRate;
     }
 
-    public static int getAllowedTerm() {
-        return allowedTerm;
+    public static double getMaximumAmount() {
+        return maximumAmount;
     }
 
-    public double getAdminFee() {
-        return adminFee;
+    public static int getMinimumTerm() {
+        return minimumTerm;
+    }
+    public static int getMaximumTerm() {
+        return maximumTerm;
     }
 
-    public static void setMaximumAmount(double maximumAmount) {
-        if (maximumAmount >= 0 && maximumAmount <= 1000){
-            ComputerLoan.maximumAmount = maximumAmount;
-        }
-    }
-    public static void setAllowedTerm(int allowedTerm) {
-        if (allowedTerm >= 1 && allowedTerm <=2){
-            ComputerLoan.allowedTerm = allowedTerm;
-        }
-    }
 }
