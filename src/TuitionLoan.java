@@ -1,9 +1,9 @@
 public class TuitionLoan extends Loan{
-    private static double minimumAmount = 0;
-    private static double maximumAmount = 20000;
+    private final static double minimumAmount = 0;
+    private final static double maximumAmount = 20000;
+    private final static int minimumTerm = 3;
+    private final static int maximumTerm = 10;
     private static double fixedRate;
-    private static int minimumTerm = 3;
-    private static int maximumTerm = 10;
     private double adminFee;
     public TuitionLoan(String borrowerName, int termInYears, double amount, double rateOfInterest, LoanType loanType) {
         super(borrowerName, termInYears, amount, rateOfInterest, loanType);

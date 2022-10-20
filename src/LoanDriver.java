@@ -55,6 +55,9 @@ public class LoanDriver {
                     input.nextLine();
                     return computerLoan;
                 }
+                else {
+                    System.out.println("Invalid Option Error!");
+                }
             }
             else if (loanType == LoanType.ACCOMODATION){
                 if(amount >= AccomodationLoan.getMinimumAmount() &&
@@ -66,6 +69,9 @@ public class LoanDriver {
                             termInYears, amount, AccomodationLoan.getFixedRate(), loanType);
                     input.nextLine();
                     return accomodationLoan;
+                }
+                else {
+                    System.out.println("Invalid Option Error!");
                 }
             }
             else if (loanType == LoanType.TUITION){
@@ -79,6 +85,9 @@ public class LoanDriver {
                     input.nextLine();
                     return tuitionLoan;
                 }
+                else {
+                    System.out.println("Invalid Option Error!");
+                }
             }
         }
     }
@@ -86,6 +95,7 @@ public class LoanDriver {
     public static void printAllLoans(){
         //PRINT THE ARRAY
         for(Loan l: loanArray){
+            System.out.println("\n-------Loan Details--------");
             l.printLoanDetails();
         }
     }
